@@ -21,7 +21,8 @@ The most important contribution was the implementation of **native FreeBSD USB s
 ### Pull Request
 
 **Added FreeBSD START_SYNC implementation — PR #122**
-[https://github.com/arduino/serial-discovery/pull/122](https://github.com/arduino/serial-discovery/pull/122)
+
+Link: [https://github.com/arduino/serial-discovery/pull/122](https://github.com/arduino/serial-discovery/pull/122)
 
 **Status: Merged and accepted**
 
@@ -89,7 +90,7 @@ Without synchronization support, an application can potentially discover ports i
 
 **Fix nil pointer in TestDownloadTool and skip gracefully on unsupported OS/arch — PR #333**
 
-[https://github.com/arduino/arduino-fwuploader/pull/333](https://github.com/arduino/arduino-fwuploader/pull/333)
+Link: [https://github.com/arduino/arduino-fwuploader/pull/333](https://github.com/arduino/arduino-fwuploader/pull/333)
 
 **Status: Open / under review**
 
@@ -165,7 +166,7 @@ The resulting behavior makes FreeBSD development and continuous testing less dep
 
 **Implement FreeBSD USB serial port enumeration — PR #228**
 
-[https://github.com/bugst/go-serial/pull/228](https://github.com/bugst/go-serial/pull/228)
+Link: [https://github.com/bugst/go-serial/pull/228](https://github.com/bugst/go-serial/pull/228)
 
 **Status: Open / under review**
 
