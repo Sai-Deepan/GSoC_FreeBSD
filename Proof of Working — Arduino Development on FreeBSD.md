@@ -65,6 +65,8 @@ The package provides the Arduino AVR platform, including:
 - Support required for AVR-based Arduino boards
 
 
+<img width="1241" height="572" alt="02-Arduino-avr-core-installed" src="https://github.com/user-attachments/assets/217b6ec3-ac51-4404-91d3-0eeda156c3ce" />
+
 _Figure 1 — `arduino-core-avr` 1.8.7 installed successfully on FreeBSD 15._
 
 This establishes that the AVR board platform required for Arduino Uno development is available through the FreeBSD environment.
@@ -101,6 +103,7 @@ arduino2-cli compile \
     --fqbn arduino:avr:uno \
     /root/Arduino/Blink
 ```
+<img width="1232" height="416" alt="01-Blink-sketch-created" src="https://github.com/user-attachments/assets/d5dc5ed1-cae2-490e-b4cc-0345687a32a9" />
 
 _Figure 2 — Blink sketch created on FreeBSD and submitted to `arduino2-cli compile` for the Arduino Uno._
 
@@ -129,6 +132,8 @@ directories:
     user: /root/Arduino
 ```
 
+<img width="1239" height="179" alt="04-blink-sketch-Compiled" src="https://github.com/user-attachments/assets/9252b49f-0667-4d34-ac64-4daa4b65c94b" />
+
 _Figure 3 — Arduino CLI configuration showing the FreeBSD installation and user sketch directories._
 
 ---
@@ -151,6 +156,8 @@ returned the Arduino AVR platform:
 ID           Installed   Latest   Name
 arduino:avr  1.8.7       n/a      Arduino AVR Boards
 ```
+<img width="1245" height="952" alt="03-Arduino-avr-platform-detected" src="https://github.com/user-attachments/assets/cbbb29cb-b274-450a-a12a-3250f7fa112b" />
+
 
 _Figure 4 — Arduino CLI recognizes `arduino:avr` version 1.8.7._
 
@@ -181,6 +188,8 @@ Global variables use 9 bytes (0%) of dynamic memory,
 leaving 2039 bytes for local variables.
 Maximum is 2048 bytes.
 ```
+<img width="1242" height="855" alt="06-Firmware-flashed" src="https://github.com/user-attachments/assets/e03dee5b-1cbf-43ff-80d5-0ce24b4c4919" />
+
 
 _Figure 5 — Successful compilation of the Blink sketch for the Arduino Uno._
 
@@ -219,6 +228,8 @@ Device signature = 0x1e950f (probably m328p)
 
 avrdude done. Thank you.
 ```
+<img width="1236" height="752" alt="07-Flash-verification" src="https://github.com/user-attachments/assets/60c60e55-1b7c-4a27-9d88-b926d93f5cbb" />
+
 
 _Figure 6 — `avrdude` successfully communicates with the ATmega328P through `/dev/cuaU0`._
 
@@ -283,6 +294,7 @@ Writing | ######################## | 100% 0.52 s
 
 970 bytes of flash written
 ```
+<img width="1229" height="646" alt="08-Arduino-cli-upload" src="https://github.com/user-attachments/assets/590ccf25-bd21-4901-82b8-f8db64b3f5a1" />
 
 _Figure 7 — 970 bytes of compiled Arduino firmware successfully written to the Arduino Uno._
 
@@ -308,6 +320,8 @@ Reading | ######################## | 100% 0.45 s
 
 avrdude done. Thank you.
 ```
+<img width="1228" height="420" alt="11-Flash-written-successfully" src="https://github.com/user-attachments/assets/03b5854b-1a1f-4e27-9365-c96a4d9b2fdf" />
+
 
 _Figure 8 — Firmware successfully verified after being written to the Arduino Uno._
 
@@ -364,6 +378,7 @@ The verbose output showed the generated command:
     -D \
     -Uflash:w:.../Blink.ino.hex:i
 ```
+<img width="1211" height="808" alt="09-Arduino-cli-avrdude-integration" src="https://github.com/user-attachments/assets/13db74b7-5cc0-4387-b078-705b86cb875a" />
 
 _Figure 9 — Arduino CLI invokes `avrdude` using the FreeBSD serial device and Arduino AVR configuration._
 
@@ -390,6 +405,8 @@ The Arduino CLI upload process also identified the newly available serial port:
 ```text
 New upload port: /dev/cuaU0 (serial)
 ```
+<img width="1211" height="808" alt="09-Arduino-cli-avrdude-integration" src="https://github.com/user-attachments/assets/393ed914-64fc-467a-9b95-bc710f301215" />
+
 
 _Figure 10 — Arduino CLI identifies `/dev/cuaU0` as the Arduino upload serial port._
 
@@ -431,9 +448,6 @@ Similar messages appeared for:
 - `mdns-discovery`
     
 - `dfu-discovery`
-
-
-_Figure 11 — Arduino CLI reports unsupported optional discovery/monitoring tools for FreeBSD._
 
 These messages are important to document because they distinguish **optional Arduino CLI tooling limitations** from the core AVR development workflow.
 
