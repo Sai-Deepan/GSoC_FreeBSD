@@ -1,5 +1,7 @@
 # Arduino CLI
 
+Link: [https://reviews.freebsd.org/D57589](https://reviews.freebsd.org/D57589)
+
 Arduino CLI provides the command-line infrastructure used to manage Arduino boards, platforms, libraries, compilation, uploading and related functionality.
 
 The first major part of the contribution was getting Arduino CLI itself working as a FreeBSD package.
@@ -48,6 +50,8 @@ The successful build established the basic FreeBSD-native foundation required fo
 ___
 ### Arduino Language Server
 
+Link: https://reviews.freebsd.org/D57969
+
 Arduino Language Server provides language-server functionality for Arduino development environments, enabling features such as code intelligence, symbol information, diagnostics and editor integration.
 
 The contribution focused on bringing the Arduino Language Server into the FreeBSD environment and establishing the dependencies and build infrastructure required for native operation.
@@ -86,6 +90,8 @@ Successfully building the language-server component extends the Arduino ecosyste
 
 ---
 ### Arduino Serial Discovery
+
+Link: https://reviews.freebsd.org/D58919
 
 Arduino Serial Discovery is responsible for identifying and providing information about serial devices connected to the system.
 
@@ -183,6 +189,134 @@ The major areas requiring attention included:
 The ESP32 work therefore represents an important step toward supporting real-world Arduino-compatible hardware on FreeBSD rather than limiting the contribution to CLI functionality alone.
 
 ---
+
+# Arduino AVR Core
+
+Link: [https://reviews.freebsd.org/D59114](https://reviews.freebsd.org/D59114)
+
+The Arduino AVR Core provides the core software required to compile and develop sketches for classic Arduino AVR-based boards, including boards such as the Arduino Uno and other boards based on AVR microcontrollers.
+
+As part of the GSoC work, the Arduino AVR Core was packaged for FreeBSD so that AVR-based Arduino development could be integrated into the native FreeBSD Ports ecosystem.
+
+The contribution adds the AVR core as a FreeBSD port, providing the platform-specific source files, build configuration and metadata required by Arduino CLI to use AVR-based boards on FreeBSD.
+
+The port is particularly important for the Arduino Uno workflow because the AVR core contains the board-specific compilation infrastructure required to transform an Arduino sketch into firmware that can be uploaded to an AVR-based Arduino board.
+
+---
+
+## FreeBSD Port
+
+The Arduino AVR Core was added to the FreeBSD Ports Collection through:
+
+```text
+devel/arduino-avr-core
+```
+
+The port packages the Arduino AVR core and makes its files available through the standard FreeBSD ports/package infrastructure.
+
+This allows the AVR platform support to be installed independently from Arduino CLI while still integrating naturally with the Arduino CLI board-management workflow.
+
+---
+
+## AVR Platform Support
+
+The AVR core provides the platform-specific components required when compiling Arduino sketches for AVR-based boards.
+
+For an Arduino Uno workflow, the core is used alongside the AVR compiler toolchain to perform the following process:
+
+```text
+Arduino Sketch
+      ↓
+Arduino CLI
+      ↓
+Arduino AVR Core
+      ↓
+AVR Toolchain
+      ↓
+AVR Firmware
+      ↓
+Arduino Uno
+```
+
+This makes the AVR core an essential component of the complete Arduino development environment.
+
+---
+
+## FreeBSD Integration
+
+Packaging the AVR core was necessary to make the Arduino ecosystem usable through FreeBSD's native packaging infrastructure.
+
+Instead of requiring users to manually download Arduino's AVR platform files, the required core can be provided through the FreeBSD Ports Collection.
+
+This also allows Arduino CLI and the AVR core to be installed and managed using the same package-management mechanisms as other FreeBSD software.
+
+The contribution therefore complements the Arduino CLI port by providing one of the primary hardware platforms that Arduino CLI needs to support.
+
+---
+
+## Build and Packaging
+
+The port required the Arduino AVR Core sources and associated metadata to be adapted to the structure expected by the FreeBSD Ports Collection.
+
+The work included defining the port metadata, source distribution information, dependencies and installation paths required for the AVR core to be correctly staged and packaged.
+
+The resulting package can then be consumed by the Arduino development environment when an AVR-based board is selected.
+
+This establishes the FreeBSD-native packaging layer required for compiling Arduino sketches for AVR hardware.
+
+---
+
+## Arduino Uno Workflow
+
+One of the main practical targets of the AVR core integration was the Arduino Uno.
+
+With the Arduino CLI, AVR core and required compiler toolchain available on FreeBSD, the development workflow becomes:
+
+```text
+Sketch
+  ↓
+arduino-cli compile
+  ↓
+Arduino AVR Core
+  ↓
+avr-gcc / AVR toolchain
+  ↓
+Compiled firmware
+  ↓
+arduino-cli upload
+  ↓
+Arduino Uno
+```
+
+This was an important milestone for the overall GSoC project because it demonstrated that FreeBSD could support the complete development pipeline for a commonly used Arduino board.
+
+---
+
+## Role in the Overall Project
+
+The Arduino CLI port provides the command-line interface, while the AVR Core provides the hardware-platform implementation required to compile programs for AVR boards.
+
+Together they form the foundation for native Arduino development on FreeBSD:
+
+```text
+FreeBSD
+   │
+   ├── Arduino CLI
+   │
+   ├── Arduino AVR Core
+   │
+   ├── AVR Toolchain
+   │
+   └── Serial/USB Support
+           │
+           ↓
+       Arduino Uno
+```
+
+This contribution therefore extends the Arduino CLI port from simply having the CLI executable available to actually supporting a complete AVR-based Arduino development workflow on FreeBSD.
+
+---
+
 ## Result
 
 Together, the Arduino CLI, Arduino Language Server, Arduino Serial Discovery and Arduino ESP32 work form the foundation of a broader Arduino development ecosystem on FreeBSD:
