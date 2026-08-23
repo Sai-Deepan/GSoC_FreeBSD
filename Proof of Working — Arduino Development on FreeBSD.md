@@ -14,17 +14,17 @@ The validation was performed using:
 
 | Screenshot | What it proves                                                              | Category                              |
 | ---------- | --------------------------------------------------------------------------- | ------------------------------------- |
-| `035114`   | Blink sketch created and `arduino2-cli compile` invoked                     | **Sketch / Compilation**              |
-| `035121`   | `arduino-core-avr-1.8.7` installed as a FreeBSD package                     | **Package / Installation**            |
-| `035305`   | Arduino CLI detects `arduino:avr 1.8.7`                                     | **Board Core Detection**              |
-| `035322`   | Arduino CLI compiles Blink successfully; **970 bytes** generated            | **Compilation ✅**                     |
-| `035850`   | `avrdude` detects ATmega328P via `/dev/cuaU0` and gets signature `0x1e950f` | **Hardware / Serial Communication ✅** |
-| `040052`   | `avrdude` writes **970 bytes** to Arduino flash                             | **Flashing / Uploading ✅**            |
-| `040418`   | Flash is read back and **970 bytes verified**                               | **Flash Verification ✅**              |
-| `040454`   | Arduino CLI performs the upload and identifies `/dev/cuaU0`                 | **Arduino CLI Upload ✅**              |
-| `040748`   | Arduino CLI invokes `/usr/local/bin/avrdude` with the Uno configuration     | **CLI → avrdude Integration ✅**       |
-| `044421`   | Same upload process showing `avrdude` processing the generated HEX          | **Upload / Flashing**                 |
-| `044431`   | Final successful flash: **970 bytes written**, 100%                         | **Flashing Proof ✅**                  |
+| `01`   | Blink sketch created and `arduino2-cli compile` invoked                     | **Sketch / Compilation**              |
+| `02`   | `arduino-core-avr-1.8.7` installed as a FreeBSD package                     | **Package / Installation**            |
+| `03`   | Arduino CLI detects `arduino:avr 1.8.7`                                     | **Board Core Detection**              |
+| `04`   | Arduino CLI compiles Blink successfully; **970 bytes** generated            | **Compilation ✅**                     |
+| `05`   | `avrdude` detects ATmega328P via `/dev/cuaU0` and gets signature `0x1e950f` | **Hardware / Serial Communication ✅** |
+| `06`   | `avrdude` writes **970 bytes** to Arduino flash                             | **Flashing / Uploading ✅**            |
+| `07`   | Flash is read back and **970 bytes verified**                               | **Flash Verification ✅**              |
+| `08`   | Arduino CLI performs the upload and identifies `/dev/cuaU0`                 | **Arduino CLI Upload ✅**              |
+| `09`   | Arduino CLI invokes `/usr/local/bin/avrdude` with the Uno configuration     | **CLI → avrdude Integration ✅**       |
+| `10`   | Same upload process showing `avrdude` processing the generated HEX          | **Upload / Flashing**                 |
+| `11`   | Final successful flash: **970 bytes written**, 100%                         | **Flashing Proof ✅**                  |
 
 ---
 
